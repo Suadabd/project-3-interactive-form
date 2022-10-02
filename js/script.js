@@ -111,7 +111,7 @@ paymentSelector.addEventListener('change',(event) =>{
 
 ///variables I'm working with: */
 const form = document.querySelector('form');
-const Name = document.getElementById("name");
+const nameUser = document.getElementById("name");
 const email = document.getElementById('email');
 // const registerFieldset = document.querySelector("#activities"); ... declared above 
 const cardNumber = document.getElementById('cc-num');
@@ -123,12 +123,12 @@ const cvvNombre = document.getElementById('cvv');
 
 /// Name validation */ Format ex: sam */
 const nameValidator = () => {
-  let nameValue  = Name.value.trim();
+  let nameValue  = nameUser.value.trim();
   let nameIsValid = /^[A-Za-z]+?\s?[a-zA-Z]+?$/i.test(nameValue);
   return nameIsValid    //returns true or false aka. boolean
 };
 /// Email validation */ Format ex: sam@bam.com */
-function EmailValidator(){
+function emailValidator(){
   let emailValue = email.value.trim();
   let emailIsValid = /^[^@]+@[^@.]+\.com$/i.test(emailValue);
   return emailIsValid
@@ -168,7 +168,7 @@ function cvvValidation(){
 //var I'm working with this section  */
 
 ///activity section parent element : fieldset or registerFieldset declared above
-const nameParent = Name.parentElement;
+const nameParent = nameUser.parentElement;
 const emailParent = email.parentElement;
 const cardParent = cardNumber.parentElement;
 const zipParent = zipCode.parentElement;
@@ -199,17 +199,17 @@ form.addEventListener('submit',(event)=> {
   }
   if (!nameValidator()) {
     event.preventDefault(); 
-    Name.parentElement.classList.add('not-valid');
-    Name.parentElement.classList.remove('valid');
+    nameUser.parentElement.classList.add('not-valid');
+    nameUser.parentElement.classList.remove('valid');
     nameHint.style.display= 'block'; 
   } else{
-    Name.parentElement.classList.add('valid');
-    Name.parentElement.classList.remove('not-valid');
+    nameUser.parentElement.classList.add('valid');
+    nameUser.parentElement.classList.remove('not-valid');
     nameHint.style.display = 'none';
   }  }); 
   
   form.addEventListener('submit',(event)=> {
-  if (!EmailValidator()) {
+  if (!emailValidator()) {
     event.preventDefault();
     emailParent.classList.add('not-valid');
     emailParent.parentElement.classList.remove('valid');
