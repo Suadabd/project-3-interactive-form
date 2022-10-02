@@ -19,9 +19,9 @@ const jobSelect = document.querySelector('#title')
 jobSelect.addEventListener('change', (event) =>  {
   if(jobSelect.value==='other'){
     otherJob.style.display='';
-}
-else {otherJob.style.display = "none";
-}
+  } else {
+  otherJob.style.display = "none";
+  }
 });
 
 
@@ -44,10 +44,10 @@ designSelector.addEventListener('change',(event) => {
 
       if(shirtType === value){
       option[i].hidden= 'false'
-    } else {
+      } else {
       option[i].selected= 'true'
+      }
     }
-  }
 
 });
 
@@ -68,7 +68,7 @@ let clickedCost = parseInt(event.target.attributes['data-cost'].value);
     defaultCost += clickedCost;
   } else {
     defaultCost -= clickedCost;
- }
+  }
     activityCost.textContent = `Total: $${defaultCost}`;     
  });
 
@@ -92,11 +92,11 @@ paymentSelector.addEventListener('change',(event) =>{
     creditCard.style.display ='';
     paypal.style.display ='none';
     bitcoin.style.display ='none';
-}else if (paymentSelector.value === 'paypal'){
+  } else if (paymentSelector.value === 'paypal'){
     paypal.style.display ='';
     creditCard.style.display ='none';
     bitcoin.style.display ='none';
-} else if (paymentSelector.value === 'bitcoin'){
+  } else if (paymentSelector.value === 'bitcoin'){
     bitcoin.style.display = '';
     paypal.style.display ='none';
     creditCard.style.display ='none';
